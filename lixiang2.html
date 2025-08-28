@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запчасти для Li Xiang L6, L7, L8, L9 - Каталог товаров</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a6cbc;
+            --secondary-color: #f8f9fa;
+            --accent-color: #ff6b00;
+            --text-color: #333;
+            --light-gray: #e9ecef;
+            --border-color: #dee2e6;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Admin Panel */
+        .admin-panel {
+            background-color: var(--light-gray);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .admin-panel h2 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .admin-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+        }
+        
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+        
+        .checkbox-item input {
+            margin-right: 5px;
+            width: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e55a00;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        
+        .btn-success {
+            background-color: var(--success-color);
+        }
+        
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        
+        .btn-danger {
+            background-color: var(--danger-color);
+        }
+        
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+        
+        /* Products Grid */
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .products-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .sort-select {
+            padding: 8px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 1;
+        }
+        
+        .product-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-model {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+        
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            height: 50px;
+            overflow: hidden;
+        }
+        
+        .product-description {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+        }
+        
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .product-old-price {
+            font-size: 0.9rem;
+            text-decoration: line-through;
+            color: #6c757d;
+            margin-left: 10px;
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .add-to-cart {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #145ea8;
+        }
+        
+        .view-details {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .view-details:hover {
+            background-color: var(--light-gray);
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6c757d;
+        }
+        
+        .close-modal:hover {
+            color: var(--text-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #ecf0f1;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            .admin-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .products-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .sort-select {
+                margin-top: 10px;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .add-to-cart, .view-details {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 5px;
+            color: white;
+            font-weight: 500;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        
+        .notification.success {
+            background-color: var(--success-color);
+        }
+        
+        .notification.error {
+            background-color: var(--danger-color);
+        }
+        
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <span>LiXiang Parts</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#catalog">Каталог</a></li>
+                        <li><a href="#admin">Добавить товар</a></li>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li class="cart-icon">
+                            🛒 <span class="cart-count">0</span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Admin Panel -->
+        <section id="admin" class="admin-panel">
+            <h2>Панель управления товарами</h2>
+            <form id="product-form" class="admin-form">
+                <div class="form-group">
+                    <label for="product-name">Название товара *</label>
+                    <input type="text" id="product-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-description">Описание товара</label>
+                    <textarea id="product-description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="product-price">Цена (руб) *</label>
+                    <input type="number" id="product-price" min="0" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-old-price">Старая цена (руб)</label>
+                    <input type="number" id="product-old-price" min="0" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="product-category">Категория *</label>
+                    <select id="product-category" required>
+                        <option value="">Выберите категорию</option>
+                        <option value="engine">Двигатель и компоненты</option>
+                        <option value="suspension">Подвеска и рулевое</option>
+                        <option value="brakes">Тормозная система</option>
+                        <option value="electrical">Электрика и электроника</option>
+                        <option value="body">Кузовные детали</option>
+                        <option value="interior">Салон и интерьер</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Совместимость с моделями *</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="model-l6" value="l6">
+                            <label for="model-l6">Li Xiang L6</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="model-l7" value="l7">
+                            <label for="model-l7">Li Xiang L7</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="model-l8" value="l8">
+                            <label for="model-l8">Li Xiang L8</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="model-l9" value="l9">
+                            <label for="model-l9">Li Xiang L9</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="product-year">Год выпуска</label>
+                    <input type="text" id="product-year" placeholder="2022-2024">
+                </div>
+                <div class="form-group">
+                    <label for="product-image">URL изображения</label>
+                    <input type="text" id="product-image" placeholder="https://...">
+                </div>
+                <div class="form-group">
+                    <label for="product-stock">Количество на складе</label>
+                    <input type="number" id="product-stock" min="0" value="1">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Добавить товар</button>
+                    <button type="reset" class="btn btn-secondary">Очистить</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Products -->
+        <section id="catalog">
+            <div class="products-header">
+                <h2 class="products-title">Каталог запчастей</h2>
+                <div>
+                    <select class="sort-select" id="sort-products">
+                        <option value="default">По умолчанию</option>
+                        <option value="price-asc">По возрастанию цены</option>
+                        <option value="price-desc">По убыванию цены</option>
+                        <option value="name-asc">По названию (А-Я)</option>
+                        <option value="name-desc">По названию (Я-А)</option>
+                    </select>
+                    <button class="btn" id="toggle-admin">Скрыть панель</button>
+                </div>
+            </div>
+
+            <div class="products-grid" id="products-container">
+                <!-- Product cards will be generated here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Product Modal -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-product-name"></h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div id="modal-product-content">
+                <!-- Modal content will be generated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>О компании</h3>
+                    <p>Мы специализируемся на поставках оригинальных и качественных запчастей для автомобилей Li Xiang.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Категории</h3>
+                    <ul>
+                        <li><a href="#">Двигатель и компоненты</a></li>
+                        <li><a href="#">Подвеска и рулевое</a></li>
+                        <li><a href="#">Тормозная система</a></li>
+                        <li><a href="#">Электрика и электроника</a></li>
+                        <li><a href="#">Кузовные детали</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Модели</h3>
+                    <ul>
+                        <li><a href="#">Li Xiang L6</a></li>
+                        <li><a href="#">Li Xiang L7</a></li>
+                        <li><a href="#">Li Xiang L8</a></li>
+                        <li><a href="#">Li Xiang L9</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li>📞 +7 (999) 123-45-67</li>
+                        <li>✉ info@lixiangparts.ru</li>
+                        <li>📍 Москва, ул. Автозаводская, 15</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 LiXiang Parts. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Products data structure
+        let products = JSON.parse(localStorage.getItem('lixiangProducts')) || [
+            {
+                id: 1,
+                name: "Масляный фильтр двигателя",
+                description: "Оригинальный масляный фильтр для всех моделей Li Xiang. Обеспечивает качественную фильтрацию моторного масла.",
+                model: "L6 L7 L8 L9",
+                price: 2490,
+                oldPrice: 2890,
+                image: "https://via.placeholder.com/300",
+                category: "engine",
+                compatibility: {
+                    l6: true,
+                    l7: true,
+                    l8: true,
+                    l9: true
+                },
+                year: "2022-2024",
+                stock: 15,
+                featured: true
+            },
+            {
+                id: 2,
+                name: "Передние тормозные колодки",
+                description: "Оригинальные передние тормозные колодки для Li Xiang L9. Высококачественные материалы обеспечивают надежное торможение.",
+                model: "L9",
+                price: 7890,
+                oldPrice: 8990,
+                image: "https://via.placeholder.com/300",
+                category: "brakes",
+                compatibility: {
+                    l6: false,
+                    l7: false,
+                    l8: false,
+                    l9: true
+                },
+                year: "2023-2024",
+                stock: 8,
+                featured: false
+            },
+            {
+                id: 3,
+                name: "Воздушный фильтр салона",
+                description: "Воздушный фильтр салона для Li Xiang L7 и L8. Обеспечивает чистый воздух в салоне автомобиля.",
+                model: "L7 L8",
+                price: 3450,
+                image: "https://via.placeholder.com/300",
+                category: "interior",
+                compatibility: {
+                    l6: false,
+                    l7: true,
+                    l8: true,
+                    l9: false
+                },
+                year: "2022-2024",
+                stock: 20,
+                featured: true
+            }
+        ];
+
+        // Cart functionality
+        let cart = JSON.parse(localStorage.getItem('lixiangCart')) || [];
+        const cartCount = document.querySelector('.cart-count');
+        
+        // DOM Elements
+        const productsContainer = document.getElementById('products-container');
+        const productForm = document.getElementById('product-form');
+        const sortSelect = document.getElementById('sort-products');
+        const toggleAdminBtn = document.getElementById('toggle-admin');
+        const adminPanel = document.getElementById('admin');
+        const modal = document.getElementById('product-modal');
+        const closeModalBtn = document.querySelector('.close-modal');
+        const notification = document.getElementById('notification');
+        
+        // Initialize the page
+        function init() {
+            renderProducts(products);
+            updateCartCount();
+            loadFormData();
+            
+            // Event listeners
+            productForm.addEventListener('submit', handleProductSubmit);
+            sortSelect.addEventListener('change', handleSortChange);
+            toggleAdminBtn.addEventListener('click', toggleAdminPanel);
+            closeModalBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+            
+            // Check if we should show the admin panel
+            const showAdmin = localStorage.getItem('showAdminPanel') === 'true';
+            if (!showAdmin) {
+                adminPanel.style.display = 'none';
+                toggleAdminBtn.textContent = 'Показать панель';
+            }
+        }
+        
+        // Render products
+        function renderProducts(productsToRender) {
+            productsContainer.innerHTML = '';
+            
+            if (productsToRender.length === 0) {
+                productsContainer.innerHTML = `
+                    <div class="no-products">
+                        <h3>Товары не найдены</h3>
+                        <p>Попробуйте изменить параметры фильтра или добавьте новые товары через панель управления.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            productsToRender.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                
+                // Generate compatibility badge
+                let compatibilityText = '';
+                if (product.compatibility.l6) compatibilityText += 'L6 ';
+                if (product.compatibility.l7) compatibilityText += 'L7 ';
+                if (product.compatibility.l8) compatibilityText += 'L8 ';
+                if (product.compatibility.l9) compatibilityText += 'L9 ';
+                
+                // Check if product is featured
+                const badge = product.featured ? '<div class="product-badge">Хит</div>' : '';
+                
+                // Check if product has old price
+                const oldPrice = product.oldPrice ? <span class="product-old-price">${product.oldPrice.toLocaleString()} руб.</span> : '';
+                
+                productCard.innerHTML = `
+                    ${badge}
+                    <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='https://via.placeholder.com/300?text=Изображение+отсутствует'">
+                    <div class="product-info">
+                        <div class="product-model">Li Xiang ${product.model}</div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-price">${product.price.toLocaleString()} руб. ${oldPrice}</div>
+                        <div class="product-actions">
+                            <button class="view-details" data-id="${product.id}">Подробнее</button>
+                            <button class="add-to-cart" data-id="${product.id}">В корзину</button>
+                        </div>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productCard);
+            });
+            
+            // Add event listeners to buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.target.getAttribute('data-id'));
+                    addToCart(productId);
+                });
+            });
+            
+            document.querySelectorAll('.view-details').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.target.getAttribute('data-id'));
+                    showProductDetails(productId);
+                });
+            });
+        }
+        
+        // Add to cart function
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                // Check if product is already in cart
+                const existingItem = cart.find(item => item.id === productId);
+                
+                if (existingItem) {
+                    if (existingItem.quantity < product.stock) {
+                        existingItem.quantity += 1;
+                    } else {
+                        showNotification('Недостаточно товара на складе', 'error');
+                        return;
+                    }
+                } else {
+                    cart.push({
+                        id: product.id,
+                        name: product.name,
+                        price: product.price,
+                        image: product.image,
+                        quantity: 1
+                    });
+                }
+                
+                updateCart();
+                showNotification(${product.name} добавлен в корзину!, 'success');
+            }
+        }
+        
+        // Update cart
+        function updateCart() {
+            localStorage.setItem('lixiangCart', JSON.stringify(cart));
+            updateCartCount();
+        }
+        
+        // Update cart count
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+        
+        // Show product details in modal
+        function showProductDetails(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            // Generate compatibility list
+            const compatibilityList = [];
+            if (product.compatibility.l6) compatibilityList.push('Li Xiang L6');
+            if (product.compatibility.l7) compatibilityList.push('Li Xiang L7');
+            if (product.compatibility.l8) compatibilityList.push('Li Xiang L8');
+            if (product.compatibility.l9) compatibilityList.push('Li Xiang L9');
+            
+            // Check if product has old price
+            const oldPrice = product.oldPrice ? 
+                <p><strong>Старая цена:</strong> <span style="text-decoration: line-through;">${product.oldPrice.toLocaleString()} руб.</span></p> : '';
+            
+            // Generate stock status
+            let stockStatus = '';
+            if (product.stock > 10) {
+                stockStatus = '<span style="color: green;">Много на складе</span>';
+            } else if (product.stock > 0) {
+                stockStatus = <span style="color: orange;">Осталось мало: ${product.stock} шт.</span>;
+            } else {
+                stockStatus = '<span style="color: red;">Нет в наличии</span>';
+            }
+            
+            document.getElementById('modal-product-name').textContent = product.name;
+            document.getElementById('modal-product-content').innerHTML = `
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <img src="${product.image}" alt="${product.name}" style="max-width: 100%; border-radius: 8px;" onerror="this.src='https://via.placeholder.com/500?text=Изображение+отсутствует'">
+                    <div>
+                        <p><strong>Модели:</strong> ${product.model}</p>
+                        <p><strong>Категория:</strong> ${getCategoryName(product.category)}</p>
+                        <p><strong>Год выпуска:</strong> ${product.year}</p>
+                        <p><strong>Наличие:</strong> ${stockStatus}</p>
+                    </div>
+                    <div>
+                        <h4>Описание</h4>
+                        <p>${product.description}</p>
+                    </div>
+                    <div>
+                        <h4>Совместимость</h4>
+                        <ul>
+                            ${compatibilityList.map(item => <li>${item}</li>).join('')}
+                        </ul>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h3>${product.price.toLocaleString()} руб.</h3>
+                            ${oldPrice}
+                        </div>
+                        <button class="add-to-cart btn" data-id="${product.id}" style="padding: 12px 20px;">
+                            Добавить в корзину
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Add event listener to modal add to cart button
+            document.querySelector('#modal-product-content .add-to-cart').addEventListener('click', () => {
+                addToCart(product.id);
+                closeModal();
+            });
+            
+            modal.style.display = 'flex';
+        }
+        
+        // Close modal
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+        
+        // Handle product form submission
+        function handleProductSubmit(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('product-name').value;
+            const description = document.getElementById('product-description').value;
+            const price = parseFloat(document.getElementById('product-price').value);
+            const oldPrice = document.getElementById('product-old-price').value ? 
+                parseFloat(document.getElementById('product-old-price').value) : null;
+            const category = document.getElementById('product-category').value;
+            const year = document.getElementById('product-year').value;
+            const image = document.getElementById('product-image').value;
+            const stock = parseInt(document.getElementById('product-stock').value) || 0;
+            
+            // Get compatibility
+            const compatibility = {
+                l6: document.getElementById('model-l6').checked,
+                l7: document.getElementById('model-l7').checked,
+                l8: document.getElementById('model-l8').checked,
+                l9: document.getElementById('model-l9').checked
+            };
+            
+            // Generate model string for display
+            const model = [];
+            if (compatibility.l6) model.push('L6');
+            if (compatibility.l7) model.push('L7');
+            if (compatibility.l8) model.push('L8');
+            if (compatibility.l9) model.push('L9');
+            
+            // Create new product
+            const newProduct = {
+                id: products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1,
+                name,
+                description,
+                price,
+                oldPrice,
+                model: model.join(' '),
+                image: image || 'https://via.placeholder.com/300?text=Нет+изображения',
+                category,
+                compatibility,
+                year,
+                stock,
+                featured: false
+            };
+            
+            // Add to products array
+            products.push(newProduct);
+            
+            // Save to localStorage
+            localStorage.setItem('lixiangProducts', JSON.stringify(products));
+            
+            // Re-render products
+            renderProducts(products);
+            
+            // Show notification
+            showNotification('Товар успешно добавлен!', 'success');
+            
+            // Reset form
+            productForm.reset();
+            saveFormData();
+        }
+        
+        // Handle sort change
+        function handleSortChange() {
+            const sortValue = sortSelect.value;
+            let sortedProducts = [...products];
+            
+            switch(sortValue) {
+                case 'price-asc':
+                    sortedProducts.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-desc':
+                    sortedProducts.sort((a, b) => b.price - a.price);
+                    break;
+                case 'name-asc':
+                    sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'name-desc':
+                    sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
+                    break;
+                default:
+                    // Default sort (by id)
+                    sortedProducts.sort((a, b) => b.id - a.id);
+            }
+            
+            renderProducts(sortedProducts);
+        }
+        
+        // Toggle admin panel
+        function toggleAdminPanel() {
+            if (adminPanel.style.display === 'none') {
+                adminPanel.style.display = 'block';
+                toggleAdminBtn.textContent = 'Скрыть панель';
+                localStorage.setItem('showAdminPanel', 'true');
+            } else {
+                adminPanel.style.display = 'none';
+                toggleAdminBtn.textContent = 'Показать панель';
+                localStorage.setItem('showAdminPanel', 'false');
+            }
+        }
+        
+        // Show notification
+        function showNotification(message, type) {
+            notification.textContent = message;
+            notification.className = notification ${type};
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Get category name
+        function getCategoryName(category) {
+            const categories = {
+                'engine': 'Двигатель и компоненты',
+                'suspension': 'Подвеска и рулевое',
+                'brakes': 'Тормозная система',
+                'electrical': 'Электрика и электроника',
+                'body': 'Кузовные детали',
+                'interior': 'Салон и интерьер'
+            };
+            
+            return categories[category] || category;
+        }
+        
+        // Save form data to localStorage
+        function saveFormData() {
+            const formData = {
+                name: document.getElementById('product-name').value,
+                description: document.getElementById('product-description').value,
+                price: document.getElementById('product-price').value,
+                oldPrice: document.getElementById('product-old-price').value,
+                category: document.getElementById('product-category').value,
+                year: document.getElementById('product-year').value,
+                image: document.getElementById('product-image').value,
+                stock: document.getElementById('product-stock').value,
+                l6: document.getElementById('model-l6').checked,
+                l7: document.getElementById('model-l7').checked,
+                l8: document.getElementById('model-l8').checked,
+                l9: document.getElementById('model-l9').checked
+            };
+            
+            localStorage.setItem('productFormData', JSON.stringify(formData));
+        }
+        
+        // Load form data from localStorage
+        function loadFormData() {
+            const formData = JSON.parse(localStorage.getItem('productFormData'));
+            if (!formData) return;
+            
+            document.getElementById('product-name').value = formData.name || '';
+            document.getElementById('product-description').value = formData.description || '';
+            document.getElementById('product-price').value = formData.price || '';
+            document.getElementById('product-old-price').value = formData.oldPrice || '';
+            document.getElementById('product-category').value = formData.category || '';
+            document.getElementById('product-year').value = formData.year || '';
+            document.getElementById('product-image').value = formData.image || '';
+            document.getElementById('product-stock').value = formData.stock || '';
+            document.getElementById('model-l6').checked = formData.l6 || false;
+            document.getElementById('model-l7').checked = formData.l7 || false;
+            document.getElementById('model-l8').checked = formData.l8 || false;
+            document.getElementById('model-l9').checked = formData.l9 || false;
+        }
+        
+        // Save form data on input change
+        const formInputs = document.querySelectorAll('#product-form input, #product-form select, #product-form textarea');
+        formInputs.forEach(input => {
+            input.addEventListener('input', saveFormData);
+            input.addEventListener('change', saveFormData);
+        });
+        
+        // Initialize the application
+        init();
+    </script>
+</body>
+</html>
